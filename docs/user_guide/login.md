@@ -1,6 +1,8 @@
-This will take you through how to login to atmosphere via the Troposphere UI.
+This will take you through the login process.
 
+# Logging in
 
-# Logging in to Troposphere
+Navigate to the home page, click login.
 
-Describe the process, step by step, of how to login to Atmosphere via the Troposphere UI.
+![](./media/login.gif)
+
