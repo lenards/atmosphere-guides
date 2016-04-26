@@ -20,11 +20,16 @@ pages:
     - 'Things to know before imaging': 'imaging_guide/starting.md'
     - 'Adding a Boot Script': 'imaging_guide/boot_scripts.md'
     - 'Making an Image private and adding members': 'imaging_guide/privacy_and_membership.md'
-- SupportGuide:
+- UserSupportGuide:
   - 'Logging in to the Admin panel': 'staff_guide/login.md'
   - 'Emulating a user': 'staff_guide/emulate.md'
   - 'Approving/Restarting Machine Requests': 'staff_guide/imaging.md'
   - 'Approving more Quota or Allocation(AU)': 'staff_guide/allocation.md'
+  - ImagingGuide:
+    - 'Approving a Machine Request': 'imaging_guide/staff_approval.md'
+    - 'Making a private image public': 'imaging_guide/staff_add_public.md'
+    - 'Making a public image private and adding members': 'imaging_guide/staff_add_privacy_and_membership.md'
+- CloudSupportGuide:
   - TroubleshootingAtmosphere:
     - 'Checking Flower': 'staff_guide/flower.md'
     - 'Checking the logs': 'staff_guide/logs.md'
@@ -36,9 +41,5 @@ pages:
     - 'The Cloud is at 100% Capacity': 'staff_guide/cloud_at_capacity.md'
   - TroubleshootingVolumes:
     - 'Diagnosing volume attach/detach problems': 'staff_guide/volume.md'
-  - ImagingGuide:
-    - 'Approving a Machine Request': 'imaging_guide/staff_approval.md'
-    - 'Making a private image public': 'imaging_guide/staff_add_public.md'
-    - 'Making a public image private and adding members': 'imaging_guide/staff_add_privacy_and_membership.md'
 
 copyright: Copyright &copy; 2016
