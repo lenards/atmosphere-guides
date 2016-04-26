@@ -1,6 +1,10 @@
-This will take you through how to use the Troposphere UI to emulate a user.
+# <a name="emulate">Emulating a user through Troposphere</a>
 
+#### To emulate a user, you must first log in to Troposphere as a staff user.
 
-# Logging in to Troposphere
+After logging in as a staff user, navigate to `https://<your_url>/application/emulate/<username>`
 
-Describe the process, step by step, of how to emulate a user after logging in to Troposphere as a staff user.
+From here, you will be able to perform actions through the Troposphere UI as if you were logged in as the user you are emulating.
+
+#### Unemulate a user:
+When done emulating a user, you can either navigate to `https://<your_url>/application/emulate/<your_username>` or `https://<your_url>/application/emulate` with no username after `emulate.`
