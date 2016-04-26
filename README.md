@@ -23,3 +23,9 @@ https://github.com/shime/livedown
 
 Here is another tool to make nice jifs.
 http://recordit.co/
+
+
+# Notes for writers
+Don't forget to dog food the existing wiki, It is *verbose* and was actually kept up to date for a long period of time.
+
+https://pods.iplantcollaborative.org/wiki/display/atmman/Atmosphere+Manual+Table+of+Contents
