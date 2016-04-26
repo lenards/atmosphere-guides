@@ -3,6 +3,7 @@ site_name: Atmosphere Guides
 pages:
 - Home: 'index.md'
 - InstallationGuide:
+  - 'How to properly fill out build env file': 'install_guide/initial_configuration.md'
   - 'How to install Atmosphere & Troposphere with Ratchet': 'install_guide/ratchet_install.md'
   - 'How to upgrade Atmosphere & Troposphere to the latest version': 'install_guide/ratchet_upgrade.md'
   - 'How to configure Atmosphere after install': 'install_guide/atmosphere_configure.md'
@@ -14,6 +15,7 @@ pages:
   - 'Launching an Instance': 'user_guide/launch.md'
   - 'Creating a Machine Request': 'user_guide/imaging.md'
   - 'Requesting more Quota or Allocation(AU)': 'user_guide/allocation.md'
+  - 'Attaching and detaching a volume': 'staff_guide/volume.md'
   - ImagingGuide:
     - 'Things to know before imaging': 'imaging_guide/starting.md'
     - 'Adding a Boot Script': 'imaging_guide/boot_scripts.md'
@@ -32,6 +34,8 @@ pages:
     - 'Instance is "Stuck in active - networking"': 'staff_guide/instance_networking_issues.md'
     - 'Instance is "Stuck in active - deploying"': 'staff_guide/instance_deployment_issues.md'
     - 'The Cloud is at 100% Capacity': 'staff_guide/cloud_at_capacity.md'
+  - TroubleshootingVolumes:
+    - 'Diagnosing volume attach/detach problems': 'staff_guide/volume.md'
   - ImagingGuide:
     - 'Approving a Machine Request': 'imaging_guide/staff_approval.md'
     - 'Making a private image public': 'imaging_guide/staff_add_public.md'
