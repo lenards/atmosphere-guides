@@ -1,4 +1,4 @@
-This will take you through how to create a machine request.
+This will take you through the process of creating a machine request.
 
 # About requesting an image
 An image is a type of template for a virtual machine.  You can launch an
