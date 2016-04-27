@@ -10,6 +10,8 @@ much like a template.
 
 **WARNING: <span style="color:red;">It is easy to include sensitive data in a public image.</span>**
 
+For other security concerns consult this [guide](https://pods.iplantcollaborative.org/wiki/display/atmman/Requesting+an+Image+of+an+Instance).
+ 
 # Navigate to the request form
 
 ![](./media/navigate-to-image-request.gif)
