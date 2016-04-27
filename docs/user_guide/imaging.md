@@ -1,7 +1,7 @@
-This will take you through the process of creating a machine request.
+This will take you through the process of creating an image.
 
 # About requesting an image
-An image is a type of template for a virtual machine.  You can launch an
+An image is a type of template for a virtual machine. You can launch an
 instance and install the software and files you want to use, then request an
 image of the instance using the Request Imaging from within Atmosphere, as
 outlined below. This allows you to retain a complete copy of all of the
