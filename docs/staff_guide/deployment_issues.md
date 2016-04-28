@@ -1,0 +1,4 @@
+# <a name="deployment-issues">Deployment Issues</a>
+1. In the case of a deploy error, the most common course of action is to emulate as the user facing the issue and click the "Redeploy" button from the instance in question's detail page. If the instance reaches another deploy error, move on to step 2.
+2. In some cases, a reboot of the instance will resolve a deploy error. You can try rebooting the instance from the instance's detail page by clicking on the "reboot" button. If for some reason a soft reboot fails, try a hard reboot. If the instance comes back to deploy error, move on to step 3.
+3. Check the [deploy logs](#logs) and look for the instance ID to see the output of which specifc tasks failed. From here, you can try to resolve the issue manually and redeploy. To easily check the realtime status of an instance's deploy process, you can use `tail -f <deploy_log_file> | grep <instance_alias>`
