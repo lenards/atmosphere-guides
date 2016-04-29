@@ -71,5 +71,44 @@ python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE
 ```
 
 #### Advanced Configuration
+##### SSL CERTS
+You can have clank install your very own ssl certs, rather than create the self signed certs. To do so, make the changes to your variables.yml file:
+```
+# SSL RELATED VARS
+CREATE_SSL: false                           # Set this to false if you wish to pass in your own certs
 
+# If the above variable is set to true, do not edit next three vars below
+
+SSL_CERTIFICATE: /location/to/my/ssl/cert/we/would/like/to/use/my_cert.crt           #Absolute Path Recommended
+BUNDLE_CERT: /location/to/my/ssl/bundle_cert/we/would/like/to/use/my_bundle_cert.crt #Absolute Path Recommended
+SSL_KEY: /location/to/my/ssl/private/key/we/would/like/to/use/my_private_key.key     #Absolute Path Recommended
+```
+
+##### SSH Keys
+You can have clank install your previously created ssh keys of choice, rather than create new ones. To do so, make the changes to your variables.yml file:
+```
+# SSH KEYS
+CREATE_SSH_KEYS: false                     # Set this to false if you wish to pass in your own ssh keys     
+ID_RSA:  /location/to/my/id_rsa_key/my_key_id_rsa                      #Absolute Path Recommended
+ID_RSA_PUB: /location/to/my/id_rsa_public_key/my_key_id_rsa.pub        #Absolute Path Recommended 
+```
+
+##### Tags
+You are able to isolate which portions of clank you want to run specifically. To do this you can pass in the tags flag to the `ratchet.py` script:
+```
+python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --tags atmosphere # Runs only the installation of atmosphere
+```
+##### Skip
+Inversely, you can skip sections:
+```
+python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --skip atmosphere # skips over the installation of atmosphere
+```
+```
+python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --skip dependencies,troposphere # skips over the installation of dependencies and troposphere
+```
+##### Overridding Your Variables
+By passing in the override_args with a dictionary, you can override variables which will take the highest presidence over the other variables you may have defined in your variables.yml
+```
+python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --override_args "{\"ATMOSPHERE_BRANCH\": \"my_favorite_branch\", \"TROPOSPHERE_BRANCH\": \"my_favorite_branch\"}"
+```
 #### Troubleshooting
