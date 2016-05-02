@@ -9,8 +9,26 @@ Select the admin panel
 Select Machine Requests
 Click 'approve'
 
+# Approving a Machine Request (Including those in ERROR)
 
-# Imaging Request ends up in (ERROR_ state
+1. Login as a staff user who has access to the Troposphere Admin Panel
+2. Select 'Imaging Requests' for a list of active requests.
+3. To Approve a Machine Request that is in a state other than *pending*, first select 're-submit'
+4. To start the Machine Request immediately, Click 'approve'. Being sure to pay attention to the warning above that
+   *ONLY ONE* request should be in the `imaging` state.
+
+![](./media/staff_how_to_approve_imaging_requests.gif)
+
+
+
+# Fixing an Imaging Request in the (ERROR) state
+
+ * If the MachineRequest throws an exception and the (Status Message) shows:
+ (validating) Error ...
+   * Including the text: "Maximum number of instances exceeded"
+
+ Ask a System Administrator to remove the instances from the `atmosphere admin` user and tenant.
+ (This problem will be automated away shortly)
 
  * If the MachineRequest throws an exception and the (Status Message) shows:
  (processing - <IMAGE_ID>) Error ...
@@ -25,12 +43,18 @@ Click 'approve'
  See 'Fixing an Imaging Problem'.
 
 # Fixing a "Cache Problem"
- This is NOT indicative of an actual problem, but rather a result of the way we 'cache' images combined with asking to launch an image that is minutes old is a hard problem to solve at this time.
-BEFORE you re-run an imaging request, if the MachineRequest was run in the last 12 hours, you should service celeryd restart FIRST to be sure that the "Caches have been cleared" .
 
+These errors are the result of an old way of handling 'caching' on our celery nodes.
+To fix a Cache problem:
+* Ask a system administrator with credentials to the production server to execute a `service celeryd restart`
+* Alternatively, celery processes will naturally turn over after some length of time. If the MachineRequest has been in error for >12 hours, simply re-running the task can solve the problem.
 
+If you receive the same error:
+
+See 'Making contact with the Atmosphere Support Team'.
 
 # Fixing an Imaging Problem
+
   NOTE:  On average, it takes 20-40minutes to go through 'imaging' of a 10GB disk. The larger the disk size, the longer the entire process will take.
 
   If the MachineRequest throws an exception and the (Status Message) shows:
@@ -46,15 +70,8 @@ BEFORE you re-run an imaging request, if the MachineRequest was run in the last 
   * Running more than one imaging task at the same time may cause problems with OS stability.
 
 
-# Approving a Machine Request that has an (ERROR) state
-
-Describe the process, step by step, of how to login to Atmosphere via the Troposphere UI.
-Select the admin panel
-Select Machine Requests
-Click 're-submit'
-Click 'approve'
-
 # Making contact with the Atmosphere Support Team
+
   If the information in this guide was not enough to help you solve the users imaging problem, you will need to contact the Atmosphere Support Team.
   To ensure that your end user requests are resolved as quickly as possible, it is highly encouraged that you first colelct the following "Level two triage information".
 
