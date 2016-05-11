@@ -14,11 +14,11 @@ pages:
   - 'Logging in to Atmosphere': 'user_guide/login.md'
   - 'Launching an Instance': 'user_guide/launch.md'
   - 'Creating a Machine Request': 'user_guide/imaging.md'
+  - 'Creating a Boot Script': 'user_guide/boot_script.md'
   - 'Requesting more Quota or Allocation(AU)': 'user_guide/allocation.md'
   - 'Attaching and detaching a volume': 'staff_guide/volume.md'
   - ImagingGuide:
     - 'Things to know before imaging': 'imaging_guide/starting.md'
-    - 'Adding a Boot Script': 'imaging_guide/boot_scripts.md'
     - 'Making an Image private and adding members': 'imaging_guide/privacy_and_membership.md'
 - UserSupportGuide:
   - 'Logging in to the Admin panel': 'staff_guide/login.md'
