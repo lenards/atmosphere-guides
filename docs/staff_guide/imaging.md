@@ -45,13 +45,17 @@ Click 'approve'
 # Fixing a "Cache Problem"
 
 These errors are the result of an old way of handling 'caching' on our celery nodes.
-To fix a Cache problem:
-* Ask a system administrator with credentials to the production server to execute a `service celeryd restart`
+* To fix a Cache problem, see 'Restarting the Imaging service on the Atmosphere Server'
 * Alternatively, celery processes will naturally turn over after some length of time. If the MachineRequest has been in error for >12 hours, simply re-running the task can solve the problem.
+Common 'Imaging Cache Problem' error messages will include:
+If the MachineRequest throws an exception and the (Status Message) shows:
+* `processing - <IMAGE_ID>` + `serverRef... does not exist`
+* `validating` + `ERROR - AttributeError("'NoneType' object has no attribute 'id'",)`
 
+First attempt:
+* See 'Restarting the Imaging Service'
 If you receive the same error:
-
-See 'Making contact with the Atmosphere Support Team'.
+* See 'Making contact with the Atmosphere Support Team'.
 
 # Fixing an Imaging Problem
 
@@ -69,6 +73,24 @@ See 'Making contact with the Atmosphere Support Team'.
   * Out of Disk space (Free up disk space by cleaning out logs or the storage directory)
   * Running more than one imaging task at the same time may cause problems with OS stability.
 
+
+# Restarting the Celery Async task service on the Atmosphere Server
+
+To restart *all* celery workers, use this command:
+```
+service celeryd restart
+```
+
+# Restarting the Imaging service on the Atmosphere Server
+
+**WARNING:** Before you restart the service, double-check (via flower) that the `imaging` queue is empty before you continue..
+
+```
+# Kill all of the celery workers that are listening to 'imaging' (Note, this is *forceful* for a *clean* restart, see 'Restarting the Celery Async task service on the Atmosphere Server')
+ps auxww | grep 'celery worker' | grep 'imaging' | awk '{print $2}' | xargs kill -9
+# This will only start the imaging service, which is no longer running.
+service celeryd start
+```
 
 # Making contact with the Atmosphere Support Team
 

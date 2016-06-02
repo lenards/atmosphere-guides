@@ -9,6 +9,7 @@ To change a user's allocation, select the "allocation" dropdown menu and select 
 - "Delta": positive to indicate an allowance that expires at the end of the month, and a -1 value indicates a permanent allowance.
 
 If the allocation you would like to assign is not listed, you can create it by clicking the green plus sign to the right of the dropdown.
+**Do Not** edit the existing allocation.
 
 # <a name="changing quota">Granting a larger Quota</a>
 
@@ -21,3 +22,4 @@ To change a user's quota, select the "quota" dropdown menu and select the new qu
 - SUSPEND #: The total number of suspended instances a user can have at one time.
 
 If the quota you would like to assign is not listed, you can create it by clicking the green plus sign to the right of the dropdown.
+**Do Not** edit the existing quota.
