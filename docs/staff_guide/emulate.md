@@ -11,6 +11,8 @@ When done emulating a user, you can either navigate to `https://<your_url>/appli
 
 How to emulate a user on Troposphere via the URL `https://<your_url>/application/emulate/<username>`:  
 ![Troposphere Emulation](./media/staff_emulate_application.gif)
+
+
 # <a name="emulate">Emulating a user through the API</a>
 
 #### To emulate a user, you must first log in to Atmosphere API as a staff user. 

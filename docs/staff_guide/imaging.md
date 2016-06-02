@@ -94,24 +94,25 @@ service celeryd start
 
 # Making contact with the Atmosphere Support Team
 
-  If the information in this guide was not enough to help you solve the users imaging problem, you will need to contact the Atmosphere Support Team.
-  To ensure that your end user requests are resolved as quickly as possible, it is highly encouraged that you first colelct the following "Level two triage information".
+If the information in this guide was not enough to help you solve the users imaging problem, you will need to contact the Atmosphere Support Team.
+To ensure that your end user requests are resolved as quickly as possible, it is highly encouraged that you first colelct the following "Level two triage information".
 
-  When making contact with Atmosphere support team:
-  * Copy/Paste the traceback that is included with the Machine Request
-  * Instance ID of the machine that was imaged (Communicate to the user that they should *NOT* delete the image until the entire process is completed.)
-  * Username and Instance IP related to the machine.
-  * Any additional information about the MachineRequest that may be different (User was trying to upgrade kernel, etc.)
+When making contact with Atmosphere support team:
+* Copy/Paste the traceback that is included with the Machine Request
+* Instance ID of the machine that was imaged (Communicate to the user that they should *NOT* delete the image until the entire process is completed.)
+* Username and Instance IP related to the machine.
+* Any additional information about the MachineRequest that may be different (User was trying to upgrade kernel, etc.)
 
-  Example request that a staff member would write after traiging a problem:
-  ```
-  Username: joetest
-  Instance ID: 1111-222-3344-4567
-  Traceback : (validating) ERROR - AttributeError("'NoneType' object has no attribute 'id'",) Exception:'Traceback (most recent call last):\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task\n R = retval = fun(*args, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__\n return self.run(*args, **kwargs)\n File "service/tasks/machine.py", line 319, in validate_new_image\n using_admin=True)\n File "service/instance.py", line 959, in launch_machine_instance\n name, userdata, network, **kwargs)\n File "service/instance.py", line 1014, in _launch_machine\n **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/driver.py", line 277, in create_instance\n super(EshDriver, self).create_instance(*args, **kwargs),\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/driver.py", line 176, in create_instance\n return self._connection.create_node(*args, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/drivers/openstack_facade.py", line 424, in create_node\n server_params = self._create_args_to_params(None, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/drivers/openstack_facade.py", line 380, in _create_args_to_params\n ._create_args_to_params(node, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/libcloud/compute/drivers/openstack.py", line 1363, in _create_args_to_params\n server_params[\'imageRef\'] = kwargs.get(\'image\').id\nAttributeError: \'NoneType\' object has no attribute \'id\'\n'
+Example request that a staff member would write after triaging a problem:
 
-  Staff Notes:
-  * I attempted to re-approve the request after a few hours had passed.
-  * I asked one of the system administrators who could connect to the production server to restart celery
-  * After restarting celery and re-approving the request a second time, the failure came back.
-  ```
+```
+Username: joetest
+Instance ID: 1111-222-3344-4567
+Traceback : (validating) ERROR - AttributeError("'NoneType' object has no attribute 'id'",) Exception:'Traceback (most recent call last):\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/celery/app/trace.py", line 240, in trace_task\n R = retval = fun(*args, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/celery/app/trace.py", line 438, in __protected_call__\n return self.run(*args, **kwargs)\n File "service/tasks/machine.py", line 319, in validate_new_image\n using_admin=True)\n File "service/instance.py", line 959, in launch_machine_instance\n name, userdata, network, **kwargs)\n File "service/instance.py", line 1014, in _launch_machine\n **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/driver.py", line 277, in create_instance\n super(EshDriver, self).create_instance(*args, **kwargs),\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/driver.py", line 176, in create_instance\n return self._connection.create_node(*args, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/drivers/openstack_facade.py", line 424, in create_node\n server_params = self._create_args_to_params(None, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/rtwo/drivers/openstack_facade.py", line 380, in _create_args_to_params\n ._create_args_to_params(node, **kwargs)\n File "/opt/env/atmo_mm/local/lib/python2.7/site-packages/libcloud/compute/drivers/openstack.py", line 1363, in _create_args_to_params\n server_params[\'imageRef\'] = kwargs.get(\'image\').id\nAttributeError: \'NoneType\' object has no attribute \'id\'\n'
+
+Staff Notes:
+* I attempted to re-approve the request after a few hours had passed.
+* I asked one of the system administrators who could connect to the production server to restart celery
+* After restarting celery and re-approving the request a second time, the failure came back.
+```
 

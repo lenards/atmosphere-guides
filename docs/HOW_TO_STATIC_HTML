@@ -1,0 +1,4 @@
+1. `apt-get install pandoc`
+2. `cd <directory_of_atmosphere_guides>/docs`
+3. `cd staff_guide`
+4. `pandoc *.md > /opt/dev/atmosphere/init_files/staff_guide.html`

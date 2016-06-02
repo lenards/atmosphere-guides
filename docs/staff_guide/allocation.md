@@ -1,10 +1,11 @@
 #### If a user has an active resource request, their request will appear under the "Resource Requests" tab in the Troposphere Admin UI. Otherwise, allocation and quota increases must be handled through the Django admin UI.
 
-Navigate to `https://<site_url>/admin/core/identitymembership` and search for the user you are changing. The results will contain a new entry for every membership that user belongs to, which is effectively an "account" on every provider the user has access to. Select the appropriate identity membership based on the provider you want to change the user's allocation or quota on.
+Navigate to `https://<site_url>/admin/core/identitymembership` and search for the user you are changing. The results will contain a new entry for every membership that user belongs to, which is effectively an "account" on every provider the user has access to. Select the appropriate identity membership based on the provider you want to change the user's allocation or quota on.  
 
 # <a name="changing-allocation">Granting a larger Allocation</a>
 
-To change a user's allocation, select the "allocation" dropdown menu and select the new allocation to assign. 
+To change a user's allocation, select the "allocation" dropdown menu and select the new allocation to assign.
+
 - "Threshold": the number of CPU minutes to allocate. Eg. 168 AU = 10080 threshold value
 - "Delta": positive to indicate an allowance that expires at the end of the month, and a -1 value indicates a permanent allowance.
 
