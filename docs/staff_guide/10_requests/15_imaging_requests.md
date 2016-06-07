@@ -1,16 +1,16 @@
-## Imaging Requests
+### Imaging Requests
 
 This will take you through how to login to atmosphere via the Troposphere UI admin interface and approve an imaging request.
 **WARNING: At most one machine request should be in the 'started' or 'imaging' state at a time. Failure to follow these rules could potentially cause filesystem trouble. You have been warned.**
 
-### Approving a 'pending' Machine Request
+#### Approving a 'pending' Machine Request
 
 Describe the process, step by step, of how to login to Atmosphere via the Troposphere UI.
 Select the admin panel
 Select Machine Requests
 Click 'approve'
 
-### Approving a Machine Request (Including those in ERROR)
+#### Approving a Machine Request (Including those in ERROR)
 
 1. Login as a staff user who has access to the Troposphere Admin Panel
 2. Select 'Imaging Requests' for a list of active requests.
@@ -22,11 +22,11 @@ Click 'approve'
 
 ![](./media/staff_how_to_approve_imaging_requests.gif)
 
-### Troubleshooting Imaging Requests
+#### Troubleshooting Imaging Requests
 
 Usually the Imaging Request process is 100% automated. Occasionally though, you will find the request is in (ERROR).
 
-#### Fixing an Imaging Request in the (ERROR) state
+##### Fixing an Imaging Request in the (ERROR) state
 
  * If the MachineRequest throws an exception and the (Status Message) shows:
  (validating) Error ...
@@ -47,7 +47,7 @@ Usually the Imaging Request process is 100% automated. Occasionally though, you 
 
  See 'Fixing an Imaging Problem'.
 
-#### Fixing a request in the `processing` or `validating` state.
+##### Fixing a request in the `processing` or `validating` state.
 
 These errors are the result of an old way of handling 'caching' on our celery nodes.
 * To fix a Cache problem, see 'Restarting the Imaging service on the Atmosphere Server'
@@ -63,7 +63,7 @@ First attempt:
 If you receive the same error:
 * See 'Making contact with the Atmosphere Support Team'.
 
-#### Fixing an error in the `imaging` state.
+##### Fixing an error in the `imaging` state.
 
   NOTE:  On average, it takes 20-40minutes to go through 'imaging' of a 10GB disk. The larger the disk size, the longer the entire process will take.
 
@@ -79,18 +79,18 @@ If you receive the same error:
   * Out of Disk space (Free up disk space by cleaning out logs or the storage directory)
   * Running more than one imaging task at the same time may cause problems with OS stability.
 
-### Taking action to restart the Imaging Services
+#### Taking action to restart the Imaging Services
 
 After working through the troubleshooting above, you may be required to restart the imaging service for Atmosphere. That process is described below.
 
-#### Restarting the Celery Async task service on the Atmosphere Server
+##### Restarting the Celery Async task service on the Atmosphere Server
 
 To restart *all* celery workers, use this command:
 ```
 service celeryd restart
 ```
 
-#### Restarting the Imaging service on the Atmosphere Server
+##### Restarting the Imaging service on the Atmosphere Server
 
 **WARNING:** Before you restart the service, double-check (via flower) that the `imaging` queue is empty before you continue..
 
@@ -101,7 +101,7 @@ ps auxww | grep 'celery worker' | grep 'imaging' | awk '{print $2}' | xargs kill
 service celeryd start
 ```
 
-### Making contact with the Atmosphere Support Team
+#### Making contact with the Atmosphere Support Team
 
 If the information in this guide was not enough to help you solve the users imaging problem, you will need to contact the Atmosphere Support Team.
 To ensure that your end user requests are resolved as quickly as possible, it is highly encouraged that you first colelct the following "Level two triage information".

@@ -1,4 +1,5 @@
-## What makes a Staff member in Atmosphere different from a regular user?
+## Granting staff access
+### What makes a Staff member in Atmosphere different from a regular user?
 
 API Staff members have the ability to:
 * Emulate end-users to help reproduce problems for the Atmosphere Team
@@ -9,7 +10,7 @@ API Staff members have the ability to:
 Troposphere Staff members have the ability to:
 * Access the `/admin` built-in django administration pages.
 
-## How do I grant Staff access to the Atmosphere APIs to User X?
+### How do I grant Staff access to the Atmosphere APIs to User X?
 To get to Atmosphere's Python REPL:
 ```bash
 cd /opt/dev/atmosphere # References the canonical 'dev' path.
@@ -29,7 +30,7 @@ user.save()
 # user.set_password('new_password')
 ```
 
-## How do I grant Staff access to the Troposphere Admin pages to User X?
+### How do I grant Staff access to the Troposphere Admin pages to User X?
 To get to Troposphere's Python REPL:
 ```bash
 cd /opt/dev/troposphere # References the canonical 'dev' path.

@@ -1,5 +1,5 @@
-##<a name='flower'>Flower</a>
-Flower is a web based tool for monitoring and administrating Celery workers and tasks.
+## Flower
+<a name='flower'>Flower</a> is a web based tool for monitoring and administrating Celery workers and tasks.
 
 ### Logging in to flower
 To check flower, navigate to `https://<your_url>/flower` and log in using your flower credentials.

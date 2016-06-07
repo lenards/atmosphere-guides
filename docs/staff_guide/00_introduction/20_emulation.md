@@ -1,19 +1,20 @@
-# Account Emulation
+## Account Emulation
 
 To emulate an account, you must be a staff user.
 If you are not sure or need staff user access, see [Staff Access](#)
 
-## <a name="emulate">Emulating a user through Troposphere</a>
+### Emulating a user through Troposphere
 
-#### To emulate a user, you must first log in to Troposphere as a staff user.
-
+<a name="emulate">
+**To emulate a user, you must first log in to Troposphere as a staff user.**
+</a>
 First, login normally as the staff user.
 Next, navigate to this page in your browser: `https://<your_url>/application/emulate/<username>`
 
 After a series of redirections, you should see that the username in the Top Right corner has changed to the user you are intending to emulate.
 If you are unable to emulate a user after several attempts, ensure that the username exists and is spelled properly.
 
-#### Unemulate a user:
+##### Unemulate a user:
 When done emulating a user, there are several options to 'disconnect' from the session:
 1. navigate to `https://<your_url>/application/emulate/<your_username>`
 2. navigate to `https://<your_url>/application/emulate` (NOTE: no username after `emulate`.)
@@ -23,16 +24,16 @@ How to emulate a user on Troposphere via the URL `https://<your_url>/application
 ![Troposphere Emulation](./media/staff_emulate_application.gif)
 
 
-## <a name="emulate">Emulating a user through the API</a>
-
-#### To emulate a user, you must first log in to Atmosphere API as a staff user. 
+### Emulating a user through the API
+<a name="emulate-api"></a>
+##### To emulate a user, you must first log in to Atmosphere API as a staff user. 
 Note: If your site does **NOT** handle username/password validation (No LDAP) then a user/password combination must be created through Django first. The user must also have marked `is_staff` and `is_superuser` true.
 
 After logging in as a staff user, navigate to `https://<your_url>/api/emulate/<username>`
 
 From here, you will be able to perform actions through the Troposphere UI as if you were logged in as the user you are emulating.
 
-#### Unemulate a user:
+##### Unemulate a user:
 When done emulating a user, you can either navigate to `https://<your_url>/api/emulate/<your_username>` or `https://<your_url>/api/emulate` with no username after `emulate.`
 
 How to emulate a user on the Atmosphere API via the URL `https://<your_url>/api/emulate/<username>`:  
