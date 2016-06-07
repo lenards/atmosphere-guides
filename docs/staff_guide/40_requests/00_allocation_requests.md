@@ -1,8 +1,9 @@
-#### If a user has an active resource request, their request will appear under the "Resource Requests" tab in the Troposphere Admin UI. Otherwise, allocation and quota increases must be handled through the Django admin UI.
+## <a name="allocation">Allocation Requests</a>
+**If a user has an active resource request, their request will appear under the "Resource Requests" tab in the Troposphere Admin UI. Otherwise, allocation and quota increases must be handled through the Django admin UI.**
+
+### <a name="changing-allocation">Granting a larger Allocation via Admin Pages</a>
 
 Navigate to `https://<site_url>/admin/core/identitymembership` and search for the user you are changing. The results will contain a new entry for every membership that user belongs to, which is effectively an "account" on every provider the user has access to. Select the appropriate identity membership based on the provider you want to change the user's allocation or quota on.  
-
-# <a name="changing-allocation">Granting a larger Allocation</a>
 
 To change a user's allocation, select the "allocation" dropdown menu and select the new allocation to assign.
 
@@ -12,7 +13,7 @@ To change a user's allocation, select the "allocation" dropdown menu and select 
 If the allocation you would like to assign is not listed, you can create it by clicking the green plus sign to the right of the dropdown.  
 **Do Not** edit the existing allocation.
 
-# <a name="changing quota">Granting a larger Quota</a>
+### <a name="changing quota">Granting a larger Quota via Admin Pages</a>
 
 To change a user's quota, select the "quota" dropdown menu and select the new quota to assign.
 
@@ -25,7 +26,8 @@ To change a user's quota, select the "quota" dropdown menu and select the new qu
 If the quota you would like to assign is not listed, you can create it by clicking the green plus sign to the right of the dropdown.  
 **Do Not** edit the existing quota.
 
-# <a name="allocation-example">Example:</a>
+### <a name="allocation-example">Example:</a>
 How to grant a quota or allocation from the Django Admin panel:  
 
 ![Granting Allocation/Quota via Django Admin](./media/adjust_quota_allocation_from_admin.gif)
+
