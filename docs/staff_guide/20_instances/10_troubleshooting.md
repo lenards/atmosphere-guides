@@ -13,20 +13,21 @@ nova show <instance_id>
 
 
 Common reasons the cloud may launch an instance in error:
-* Build Scheduling Failed: No host could be found:
-  * These errors appear when the cloud is nearing capacity.
-  * If the instance flavor/size launched was "large" you can try a smaller size and see if the error persists.
-  * If the smaller size launches, your cloud is likely full. Contact the Cloud System Administrator to be sure.
+- Build Scheduling Failed: No host could be found:
+  - These errors appear when the cloud is nearing capacity.
+  - If the instance flavor/size launched was "large" you can try a smaller size and see if the error persists.
+  - If the smaller size launches, your cloud is likely full. Contact the Cloud System Administrator to be sure.
 
 ## The Problem: Instance is "stuck" in `networking`
 
 Note that we define 'stuck' as being in the state for >20 minutes, but for some older clouds it can take as long as 2 hours to move from `networking` to `deploying`.
 
 An instance will be stuck in networking if one of the following conditions is true:
-* The instance was recently launched and has not yet completed the 'boot' process. These instances are *offline*
-* The instance was recently assigned a floating IP and it has not yet "stuck" to the instance. These instances are *not reachable via SSH*
-* The instance is *online* and *reachable via SSH*, but the SSH key did not properly deploy to the instance on first boot.
-* If after >2 hours, one of these three conditions is still resulting in failure, the instance will move to [deploy_error](#deploy_error).
+
+- The instance was recently launched and has not yet completed the 'boot' process. These instances are *offline*
+- The instance was recently assigned a floating IP and it has not yet "stuck" to the instance. These instances are *not reachable via SSH*
+- The instance is *online* and *reachable via SSH*, but the SSH key did not properly deploy to the instance on first boot.
+- If after >2 hours, one of these three conditions is still resulting in failure, the instance will move to [deploy_error](#deploy_error).
 
 1. A common resolution to an instance stuck in networking is to reboot it from the Tropospere UI while [emulating](#) as the user experiencing the issue. 
    If the instance gets stuck in networking again, proceed to step 2.

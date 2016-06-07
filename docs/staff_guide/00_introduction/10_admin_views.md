@@ -5,9 +5,10 @@
 It is important to note the amount of responsibility that one assumes when they are given access to these admin pages.
 
 These pages can be thought of as a direct line into all of the available tables and rows in the database.
-* "Objects" (Database entries) can be manually deleted and lost forever.
-* Values can also be edited incorrectly and cause unforseen problems during a users experience.
-* Scalar values that are changed can affect a wide variety of functionality, as an example:
+
+- "Objects" (Database entries) can be manually deleted and lost forever.
+- Values can also be edited incorrectly and cause unforseen problems during a users experience.
+- Scalar values that are changed can affect a wide variety of functionality, as an example:
   you should always *create* a new **Quota** rather than edit, because to edit would potentially change that value for >1 users.
 
 Please, **USE CAUTION** when editing *any* entry directly.

@@ -2,13 +2,15 @@
 ### What makes a Staff member in Atmosphere different from a regular user?
 
 API Staff members have the ability to:
-* Emulate end-users to help reproduce problems for the Atmosphere Team
-* Respond to and accept resource requests in the Troposphere App.
-* Respond to and accept imaging requests in the Troposphere App.
-* Access the `/admin` built-in django administration pages.
+
+- Emulate end-users to help reproduce problems for the Atmosphere Team
+- Respond to and accept resource requests in the Troposphere App.
+- Respond to and accept imaging requests in the Troposphere App.
+- Access the `/admin` built-in django administration pages.
 
 Troposphere Staff members have the ability to:
-* Access the `/admin` built-in django administration pages.
+
+- Access the `/admin` built-in django administration pages.
 
 ### How do I grant Staff access to the Atmosphere APIs to User X?
 To get to Atmosphere's Python REPL:

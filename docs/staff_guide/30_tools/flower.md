@@ -13,7 +13,7 @@ root     23488  0.0  1.9 611340 81872 pts/7    Sl   Jun03   4:11 python /opt/dev
 ```
 the `USERNAME:PASSWORD` is the same values that will be required when logging in to flower.
 
-** If you don't have the flower credentials or server access, ask your site operators for more information. **
+**If you don't have the flower credentials or server access, ask your site operators for more information.**
 
 ### Checking the status of a running task
 View the status of recent celery tasks by clicking on the "Tasks" tab.

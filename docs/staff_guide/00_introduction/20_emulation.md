@@ -16,17 +16,19 @@ If you are unable to emulate a user after several attempts, ensure that the user
 
 ##### Unemulate a user:
 When done emulating a user, there are several options to 'disconnect' from the session:
-1. navigate to `https://<your_url>/application/emulate/<your_username>`
-2. navigate to `https://<your_url>/application/emulate` (NOTE: no username after `emulate`.)
-3. You can also **logout** and upon the next login you should see your own account again.
+
+#. navigate to `https://<your_url>/application/emulate/<your_username>`
+#. navigate to `https://<your_url>/application/emulate` (NOTE: no username after `emulate`.)
+#. You can also **logout** and upon the next login you should see your own account again.
 
 How to emulate a user on Troposphere via the URL `https://<your_url>/application/emulate/<username>`:  
 ![Troposphere Emulation](./media/staff_emulate_application.gif)
 
 
 ### Emulating a user through the API
+
+**To emulate a user, you must first log in to Atmosphere API as a staff user.**
 <a name="emulate-api"></a>
-##### To emulate a user, you must first log in to Atmosphere API as a staff user. 
 Note: If your site does **NOT** handle username/password validation (No LDAP) then a user/password combination must be created through Django first. The user must also have marked `is_staff` and `is_superuser` true.
 
 After logging in as a staff user, navigate to `https://<your_url>/api/emulate/<username>`
