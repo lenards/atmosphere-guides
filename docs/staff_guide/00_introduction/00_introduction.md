@@ -1,9 +1,13 @@
 # Staff Guide
 
 ## Audience
+<a name="staff_audience"></a>
+
 The staff guide is intended to be viewed by those who have been or will be given 'is_staff' privileges on Atmosphere.
 
 ## Staff Responsbilities
+<a name="staff_responsibilities"></a>
+
 Staff members are responsible for:
 
 - Approving resource requests

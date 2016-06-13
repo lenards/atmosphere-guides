@@ -1,4 +1,5 @@
 ## Accessing the Django Administration Pages
+<a name="staff_django_admin"></a>
 
 ### First, A warning about Django Administration Pages
 
@@ -19,7 +20,7 @@ From here, you have full access to all users, identities, requests, and other At
 ##### Logging in through Django admin interface
 In order to access the Django Administration Pages in Atmosphere your user must both have the `is_staff` and `is_superuser` privileges *AND a valid password*.
 If you are using an LDAP backed Atmosphere, your "Normal" LDAP login should suffice.
-If you are not, you will need a password set for you by another Atmosphere Staff user, or you must set your password via the REPL (See [Staff access](./00_staff_access.md) for more details).
+If you are not, you will need a password set for you by another Atmosphere Staff user, or you must set your password via the REPL (See [Staff access](#staff_access) for more details).
 
 Navigate to `https://<your_url>/admin` and log in as a staff user to access the Django admin interface.
 

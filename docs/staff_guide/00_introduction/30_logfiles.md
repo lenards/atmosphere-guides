@@ -1,8 +1,9 @@
 ## Checking logs
-<a name="logs"></a>
+<a name="staff_logs"></a>
 The aggregate of all *Atmosphere* log output can be found at `<atmosphere_install_location/logs/atmosphere.log>`
 
 Individual log files can be found in the same directory with a format of `atmosphere_<type>.log`. This includes:
+
 - deploy 
 - email 
 - status 

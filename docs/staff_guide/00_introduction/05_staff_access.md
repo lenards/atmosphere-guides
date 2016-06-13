@@ -1,4 +1,6 @@
 ## Granting staff access
+<a name="staff_access"></a>
+
 ### What makes a Staff member in Atmosphere different from a regular user?
 
 API Staff members have the ability to:
