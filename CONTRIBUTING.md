@@ -24,7 +24,7 @@ cp -r media /opt/dev/atmosphere/init_files/
 
 ### How to run Pandoc to generate an HTML file
 ```
-pandoc --standalone -S --toc --toc-depth 4 -c ./themes/cyverse/templates/main.css --template templates/html/bootstrap.html docs/staff_guide/00_introduction/*.md docs/staff_guide/10_requests/*.md docs/staff_guide/20_instances/*.md docs/staff_guide/30_tools/*.md -t html -o ./staff_guide.html -A themes/cyverse/templates/footer.html
+pandoc --standalone -S --toc --toc-depth 4 -c ./themes/cyverse/templates/main.css --template templates/html/bootstrap.html docs/staff_guide/00_introduction/*.md docs/staff_guide/10_requests/*.md docs/staff_guide/20_instances/*.md docs/staff_guide/30_tools/*.md -t html -o ./staff_guide.html -A themes/cyverse/templates/footer.html -H themes/cyverse/templates/headers.html -B themes/cyverse/templates/header.html
 ```
 
 ### How to run Pandoc to generate a .docx file
