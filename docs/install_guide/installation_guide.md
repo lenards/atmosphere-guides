@@ -65,9 +65,9 @@ If you know the parent directory of the clank directory is, you can pass that, o
 WORKSPACE="$(dirname `pwd`)"
 VARIABLES_YML_FILE=/path/to/our/completed/variables.yml
 ```
-And now we run `rachet.py` which will install ansible locally, pass in the appropriate variables to ansible, and pass any flags we wish ansible to consume.
+And now we run `clank.py` which will install ansible locally, pass in the appropriate variables to ansible, and pass any flags we wish ansible to consume.
 ```
-python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE
+python clank.py --env_file $VARIABLES_YML_FILE
 ```
 
 #### Advanced Configuration
