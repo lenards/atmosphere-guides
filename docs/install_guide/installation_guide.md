@@ -94,21 +94,113 @@ ID_RSA_PUB: /location/to/my/id_rsa_public_key/my_key_id_rsa.pub        #Absolute
 ```
 
 ##### Tags
-You are able to isolate which portions of clank you want to run specifically. To do this you can pass in the tags flag to the `ratchet.py` script:
+You are able to isolate which portions of clank you want to run specifically. To do this you can pass in the tags flag to the `clank.py` script:
 ```
-python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --tags atmosphere # Runs only the installation of atmosphere
+python clank.py --env_file $VARIABLES_YML_FILE --tags atmosphere # Runs only the installation of atmosphere
 ```
 ##### Skip
 Inversely, you can skip sections:
 ```
-python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --skip atmosphere # skips over the installation of atmosphere
+python clank.py --env_file $VARIABLES_YML_FILE --skip atmosphere # skips over the installation of atmosphere
 ```
 ```
-python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --skip dependencies,troposphere # skips over the installation of dependencies and troposphere
+python clank.py --env_file $VARIABLES_YML_FILE --skip dependencies,troposphere # skips over the installation of dependencies and troposphere
 ```
-##### Overridding Your Variables
-By passing in the override_args with a dictionary, you can override variables which will take the highest presidence over the other variables you may have defined in your variables.yml
+## What to do after installing Clank
+
+### Starting the Atmosphere service and logging in
+
+After you have run clank.py successfully, you will need to run:
 ```
-python ratchet.py --workspace $WORKSPACE --env_file $VARIABLES_YML_FILE --override_args "{\"ATMOSPHERE_BRANCH\": \"my_favorite_branch\", \"TROPOSPHERE_BRANCH\": \"my_favorite_branch\"}"
+service atmosphere start
 ```
-#### Troubleshooting
+At which point you should be able to point your browser of choice to `https://<your_server_url>/`. Login (via Mock, CAS, or the AuthenticationBackend you are using) and you should see your username in the top-right corner.
+![Troposphere first login](./media/troposphere_first_login.gif)
+
+### Setting your user as staff and superuser
+After you have logged in once, you will need to set your user as a staff/superuser.
+
+Because you have to be a superuser in order to access the /admin page for Atmosphere, you will have to do this by the Atmosphere Python REPL:
+```
+# BASH:
+[11:52 root@mickey atmosphere] > cd /opt/dev/atmosphere
+[11:52 root@mickey atmosphere] > source /opt/env/atmo/bin/activate
+(atmo_ss) [11:52 root@mickey atmosphere] > ./manage.py shell
+# In the PYTHON REPL
+from core.models import AtmosphereUser
+user = AtmosphereUser.objects.get(username='sgregory')
+user.is_superuser = True
+user.is_staff = True
+user.save()
+```
+
+### Connecting to a new Cloud Provider
+Now that you have logged in and marked your user an administrator, you are ready to connect to the cloud.
+
+Upon page refresh, you should see a new tab 'admin'. Select the 'admin' tab, and just below that, select 'Manage Accounts'.
+
+To create a new cloud provider, select 'Create New Provider'. You will be required to answer some cloud-specific questions about the new provider, including the Providers Credentials and CloudConfig.
+
+Looking for some useful defaults? Try these:
+```
+"name": "New Cloud connected to Atmosphere",
+"timezone": "America/Phoenix",
+"description": "This is a test of cloud connectivity",
+"cloud_config": {
+    "deploy": {},
+    "network": {
+        "dns_nameservers": ["8.8.8.8", "8.8.4.4"],
+        "topology": "External Router Topology"
+    },
+    "user": {
+        "domain": "default",
+        "admin_role_name": "admin",
+        "user_role_name": "_member_",
+        "secret": "<UNIQUE_STRING_REDACTED>"
+    }
+},
+"credentials": [
+    {"key": "admin_url", "value": "http://your.openstack.cloud:35357"},
+    {"key": "auth_url", "value": "http://your.openstack.cloud:5000"},
+    {"key": "public_routers", "value": "public_router"},
+    {"key": "region_name", "value": "RegionName"},
+    {"key": "ex_force_auth_version", "value": "2.0_password"}  # NOTE: new clouds > havana will use 3.x_password here
+]
+```
+
+![Create Provider in Troposphere](./media/troposphere_create_provider.gif)
+
+
+### Creating Accounts using Troposphere
+To Add an account with Troposphere, select 'Create New Account' from the 'admin'->'Manage Accounts' tabs in Troposphere.
+A modal should appear asking for some information about the user:
+
+#### Describing the 'Create Account' modal:
+Atmosphere username - The `username` of the `core.AtmosphereUser` that will be retrieved/created and then assigned to the new identity.
+Atmosphere Group Name - The `name` of the `core.Group` that will be retrieved/created (connected to the Atmosphere Username) and then assigned (Membership roles) to the new identity.
+Provider - The Cloud Provider you wish to associate the new account with
+Quota - The quota you want assigned to your new openstack account (Uses Default Quota by default)
+Credentials - A list of key/value pairings that describe your user's openstack account. For a new account
+Create a new account - If true, only `key` is required as a credential, password/tenant name will be generated and saved to the identity. If False, all three credentials (key, secret, ex_project_name) are required.
+Is this an admin account - If true, (create a new account should be False, here) the account is provisioned differently and then linked to the provider.
+
+Upon creation, Atmosphere will test the identity. If for any reason the identity does *not* produce a valid `rtwo.Driver` the identity will be deleted and an error message will be thrown.
+
+#### Adding the admin account to your new provider
+Before you can start adding accounts, you need to designate an identity as "the admin account" for the new provider.
+Doing this grants you access to create new accounts, manage users within openstack, as well as monitoring and imaging services through Atmosphere.
+
+After you create the account, you should see it appear in the list of "Identities" just below 'Create New Account' button in Troposphere.
+
+![Troposphere admin account creation](./media/troposphere_create_admin_account.png)
+
+#### Adding a new user account to your new provider
+Creating a new account is a simpler process, you can use the description above and the screenshot below to help answer the question of whats required.
+
+Account creation takes a few seconds more than admin account creation (to be sure all of our pieces are properly adjusted).
+
+Upon creation, Atmosphere will test this identity. If for any reason the identity does *not* produce a valid `rtwo.Driver` the identity will be deleted and an error message will be thrown.
+
+After account creation, you should see it appear in the list of "Identities" just below 'Create New Account' button in Troposphere.
+
+[!Troposphere user account creation](./media/troposphere_create_user_account.png)
