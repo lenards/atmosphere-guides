@@ -1,8 +1,6 @@
 # Atmosphere Guides
 
-This repo contains multiple guides that will be hosted on ReadTheDocs.
-<!-- The RTD site can be found here: <http://atmosphere-guides.readthedocs.org/> -->
-
+This repo contains multiple guides that will be hosted on Github Pages.
 
 ## User Guide
 
@@ -27,8 +25,21 @@ https://github.com/shime/livedown
 Here is another tool to make nice jifs.
 http://recordit.co/
 
-# Notes for writers
-Don't forget to dog food the existing wiki, It is *verbose* and was actually
-kept up to date for a long period of time.
+# Compile
+After making changes, you need to compile them (so they will show up in GH Pages)
+
+to do this, cd to this directory and run:
+```
+make
+```
+
+# Contributing
+
+See CONTRIBUTING.md for more details not covered here.
+
+# Notes for CyVerse Document writers
+Don't forget to dog food the existing wiki, It is *verbose* and was actually kept up to date for a long period of time.
 
 https://pods.iplantcollaborative.org/wiki/display/atmman/Atmosphere+Manual+Table+of+Contents
+
+
